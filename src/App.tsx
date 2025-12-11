@@ -1,11 +1,11 @@
-
+import { Elevator } from "./components/Elevator/Elevator"
 
 function App() {
   
 
   return (
     <>
-     <h1 className="text-9xl">hello world</h1>
+    <Elevator />
     </>
   )
 }
