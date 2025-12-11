@@ -1,9 +1,9 @@
 import type { Direction, Floor } from "../types/elevator.types";
 
 export class ElevatorAlgorithm {
-  /**
-   * Reorders queue based on current direction (SCAN algorithm)
-   */
+  
+   // Reorders queue based on current direction (SCAN algorithm)
+   
   static reorderQueue(
     queue: Floor[],
     currentFloor: Floor,
@@ -26,9 +26,9 @@ export class ElevatorAlgorithm {
     return queue;
   }
 
-  /**
-   * Checks if elevator should reverse direction
-   */
+  
+  //  Checks if elevator should reverse direction
+   
   static shouldReverseDirection(
     queue: Floor[],
     currentFloor: Floor,
@@ -44,9 +44,9 @@ export class ElevatorAlgorithm {
     return !hasFloorsInDirection;
   }
 
-  /**
-   * Calculates next direction based on queue
-   */
+  
+   // Calculates next direction based on queue
+   
   static calculateNextDirection(
     queue: Floor[],
     currentFloor: Floor
@@ -57,9 +57,9 @@ export class ElevatorAlgorithm {
     return nextFloor > currentFloor ? 'up' : 'down';
   }
 
-  /**
-   * Validates if floor is within bounds
-   */
+  
+   // Validates if floor is within bounds
+   
   static isValidFloor(floor: number, minFloor: Floor, maxFloor: Floor): boolean {
     return floor >= minFloor && floor <= maxFloor;
   }
