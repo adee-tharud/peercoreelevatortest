@@ -3,7 +3,6 @@ import type { Direction, Floor } from "../types/elevator.types";
 export class ElevatorAlgorithm {
   /**
    * Reorders queue based on current direction (SCAN algorithm)
-   * Prioritizes floors in current direction, then reverses
    */
   static reorderQueue(
     queue: Floor[],

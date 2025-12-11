@@ -16,9 +16,7 @@ const elevatorSlice = createSlice({
   name: 'elevator',
   initialState,
   reducers: {
-    /**
-     * Adds a floor request to the queue
-     */
+  
     addRequest(state, action: PayloadAction<Floor>) {
       const floor = action.payload;
 
@@ -53,9 +51,7 @@ const elevatorSlice = createSlice({
       );
     },
 
-    /**
-     * Moves elevator one step (called by interval)
-     */
+   
     step(state) {
       // Handle stopping state
       if (state.status === 'stop') {
@@ -64,7 +60,6 @@ const elevatorSlice = createSlice({
           return;
         }
 
-        // Stop finished
         state.status = 'moving';
         state.stopTimer = null;
 
@@ -132,9 +127,9 @@ const elevatorSlice = createSlice({
       }
     },
 
-    /**
-     * Resets elevator to initial state
-     */
+    
+     // Resets elevator to initial state
+     
     reset() {
       return initialState;
     },
