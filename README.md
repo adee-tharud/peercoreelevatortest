@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# PeerCore Elevator Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live demo: https://shiny-cascaron-fa587c.netlify.app/
 
-Currently, two official plugins are available:
+A small elevator simulator written in TypeScript + React + Redux, designed as a demo of elevator scheduling logic and UI/UX for requesting floors. The project demonstrates a clean separation between pure business logic (elevator scheduling), application state (Redux slice), and UI (React components).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+This repository contains an elevator simulator which:
+- Accepts floor requests (call buttons and control panel),
+- Uses an algorithm (SCAN-like) to order and serve requests,
+- Simulates elevator movement and stop durations,
+- Demonstrates a small React + Redux application with TypeScript.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The algorithm and core scheduling logic are implemented in a pure module to make it easy to test and reuse.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Floor call buttons (up/down) and a control panel for inside elevator requests
+- A simple elevator scheduling algorithm (reorders requests according to direction)
+- Movement simulation (time-based stepping & stop durations)
+- Clean TypeScript types and separated services for core logic
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- TypeScript
+- React (with functional components and hooks)
+- Redux Toolkit
+- Vite (bundler / dev server)
+- Vitest (testing)
+- Tailwind CSS (styling)
+- Lucide icons
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✔️ Test Suite Results
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The project includes a fully unit-tested elevator scheduling algorithm written in TypeScript using Vitest.
+
+Below is a screenshot of all tests passing:
+
+![Vitest Test Results](./public/testcases.png)
